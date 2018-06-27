@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layoutDirection="ltr">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_winner_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:maxLines="1"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_winner_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:maxLines="1"
+            android:text=""
+            android:textColor="#8f969c"
+            android:textSize="14sp" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_prize_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tv_winner_name"
+            android:layout_marginTop="8dp"
+            android:text=""
+            android:textColor="#31B404"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

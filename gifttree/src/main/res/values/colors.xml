@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<color name="primary">#05c173</color>
+    <color name="primary_darker">#06a966</color>
+    <color name="accent">#25baec</color>-->
+
+    <color name="colorPrimary">#00c8af</color>
+    <color name="colorPrimaryDark">#009986</color>
+    <color name="colorAccent">#009986</color>
+
+    <color name="relative_bg">#8f969c</color>
+    <color name="pdlg_color_blue">#1976D2</color>
+    <color name="pdlg_color_black">#212121</color>
+
+    <color name="web_view1">#00796b</color>
+    <color name="web_view2">#12635D</color>
+
+    <!-- added by abozar -->
+    <color name="colorCityButton">#303F9F</color>
+    <color name="black">#000000</color>
+    <color name="jet">#222222</color>
+    <color name="black_effective">#2a2a2a</color>
+    <color name="oil">#333333</color>
+    <color name="monsoon">#777777</color>
+    <color name="jumbo">#888888</color>
+    <color name="aluminum">#999999</color>
+    <color name="base">#AAAAAA</color>
+    <color name="iron">#CCCCCC</color>
+    <color name="white">#FFFFFF</color>
+    <color name="bottom_nav_bg">#e7e7e7</color>
+    <color name="pink">#dd0072</color>
+    <color name="purple">#744d9a</color>
+    <color name="red">#dd0004</color>
+    <color name="red2">#de3e41</color>
+    <color name="orange">#ffa300</color>
+    <color name="ios_blue">#007aff</color>
+    <color name="manatee">#9b9b9b</color>
+    <color name="Color_LightBlue">#ADD8E6</color>
+    <color name="card_bg_color">#f1f7fc</color>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="green">#05c173</color>
+    <color name="blue">#00A3D9</color>
+
+    <!-- Screens background color-->
+    <color name="bg_screen1">#43c186</color>
+    <color name="bg_screen2">#20d2bb</color>
+    <color name="bg_screen3">#3395ff</color>
+    <color name="bg_screen4">#0462c9</color>
+    <color name="bg_screen5">#044d9c</color>
+
+    <!-- dots inactive colors -->
+    <color name="dot_dark_screen1">#aae9dc</color>
+    <color name="dot_dark_screen2">#14a895</color>
+    <color name="dot_dark_screen3">#2278d4</color>
+    <color name="dot_dark_screen4">#145294</color>
+    <color name="dot_dark_screen5">#043468</color>
+
+    <!-- dots active colors -->
+    <color name="dot_light_screen1">#008067</color>
+    <color name="dot_light_screen2">#8cf9eb</color>
+    <color name="dot_light_screen3">#93c6fd</color>
+    <color name="dot_light_screen4">#5d9de2</color>
+    <color name="dot_light_screen5">#3f78b5</color>
+
+    <color name="golden">#FFFF00</color>
+
+
+
+    <array name="array_dot_active">
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen1</item>
+
+    </array>
+
+    <array name="array_dot_inactive">
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen1</item>
+
+    </array>
+</resources>

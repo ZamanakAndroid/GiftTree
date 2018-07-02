@@ -52,7 +52,7 @@ public class ChanceTreeFragment extends BaseFragmentNew implements View.OnClickL
 
     private RecyclerView rvWinners;
     private AppCompatButton btnTryChance, btnInviteFriend;
-    private ProgressBar pbarLoading, pbarFirst;
+    private ProgressBar progress_bar_list, pbarFirst;
     private NestedScrollView nestedScrollView;
     private AppCompatImageView ivHeaderPic;
     private AppCompatTextView tvEmptyWinnersArround;
@@ -100,7 +100,7 @@ public class ChanceTreeFragment extends BaseFragmentNew implements View.OnClickL
         ivHeaderPic = getViewById(R.id.iv_header_pic);
         btnInviteFriend = getViewById(R.id.btn_invite_friend);
         btnTryChance = getViewById(R.id.btn_try_chance);
-        //pbarLoading = getViewById(R.id.progress_bar);
+        progress_bar_list = getViewById(R.id.progress_bar_list);
         pbarFirst = getViewById(R.id.progress_bar_first);
         nestedScrollView = getViewById(R.id.nested_scroll_view);
         rvWinners = getViewById(R.id.rv_winners);
@@ -135,7 +135,7 @@ public class ChanceTreeFragment extends BaseFragmentNew implements View.OnClickL
             public void onError(Exception e) {
 
             }
-        }, Constants.BASE_API_KEY, Urls.GET_DETAIL).execute();
+        }, GiftTreeSDK.getBaseApiKey(), Urls.GET_DETAIL).execute();
     }
 
 
@@ -160,6 +160,7 @@ public class ChanceTreeFragment extends BaseFragmentNew implements View.OnClickL
                                 .show(getFragmentManager());*/
                     }
                 }
+                CustomProgressDialog.showProgressDialog(progress_bar_list);
                 callWinnersArroundApi();
 
             } else {
@@ -185,7 +186,7 @@ public class ChanceTreeFragment extends BaseFragmentNew implements View.OnClickL
                         if (res.getResult().size() > 0) {
                             setRecentWinnersList(res.getResult());
                         } else {
-                            //CustomProgressDialog.finishProgressDialog(pbarLoading);
+                            CustomProgressDialog.finishProgressDialog(progress_bar_list);
                             tvEmptyWinnersArround.setVisibility(View.VISIBLE);
                         }
                     }
@@ -199,11 +200,11 @@ public class ChanceTreeFragment extends BaseFragmentNew implements View.OnClickL
             public void onError(Exception e) {
 
             }
-        }, Constants.BASE_API_KEY, queryUrl).execute();
+        }, GiftTreeSDK.getBaseApiKey(), queryUrl).execute();
     }
 
     private void setRecentWinnersList(ArrayList<RecentWinners> result) {
-        //CustomProgressDialog.finishProgressDialog(pbarLoading);
+        CustomProgressDialog.finishProgressDialog(progress_bar_list);
         rvWinners.setVisibility(View.VISIBLE);
         rvWinners.addItemDecoration(new DividerItemDecoration(mActivity, DividerItemDecoration.VERTICAL_LIST));
         LinearLayoutManager llm = new LinearLayoutManager(mActivity, LinearLayoutManager.VERTICAL, false);
@@ -219,7 +220,7 @@ public class ChanceTreeFragment extends BaseFragmentNew implements View.OnClickL
         Intent intent;
         if (v.getId() == btnTryChance.getId()) {
             FirebaseLogUtils.logEvent(mActivity, "amazingTree_TryBTN");
-            if (true) {
+            if (isCanShake) {
                 intent = new Intent(mActivity, TryChanceActivity.class);
                 if (isSubscribed) {
                     intent.putExtra("chanceType", "special");

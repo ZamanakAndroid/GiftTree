@@ -1,10 +1,6 @@
 package com.zamanak.gifttreelibrary;
 
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
-
 import com.zamanak.gifttree.GiftTreeSDK;
 import com.zamanak.gifttree.activity.BaseActivityNew;
 

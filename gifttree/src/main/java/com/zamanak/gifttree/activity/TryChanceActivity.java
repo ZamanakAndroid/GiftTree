@@ -200,7 +200,7 @@ public class TryChanceActivity extends BaseActivityNew implements View.OnClickLi
             public void onError(Exception e) {
 
             }
-        }, Constants.BASE_API_KEY, queryUrl).execute();
+        }, GiftTreeSDK.getBaseApiKey(), queryUrl).execute();
     }
 
 

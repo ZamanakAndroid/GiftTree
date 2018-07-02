@@ -18,12 +18,7 @@ public class Constants {
     public static final int LAYOUT_DIRECTION_RTL = 1;
 
     /*API Key*/
-    public static final String LOGIN_REGISTRATION_API_KEY = "b322c0ab4aac208ce10b1b212f7b3de74bfef42cede298ccf9d236fa59a66867";
-    public static final String USER_RESOURCES_API_KEY = "efb16b58c11a5130760cf161858f8fdf45699cc73fe0910b27ec5ed1e6ac0fda";
-    public static final String REQUESTS_API_KEY = "d0fbb35763ff9b1c0202e7414f188ad17092ab9547b321ee1868d57ee1a2403e";
-    public static final String BASE_API_KEY = "b8c30f784ba9e0d1c384392cb930f6ad8139d512fec670666d94dbade03fa3f6";
-    public static final String HEALTH_DOCUMENT_API_KEY = "bbfc09d3609301a0959771d89adc9626e2a44906b80290865609602838bbe45d";
-    public static final String IUSER_API_KEY = "06b052875b5b7c015db7c63b8a53e5450a34d2714d645945e2ec96a0d0752a93";
+
 
     /*Arrays*/
     public static String[] searchZone = new String[]{

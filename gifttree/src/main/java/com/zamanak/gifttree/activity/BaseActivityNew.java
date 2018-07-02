@@ -25,6 +25,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.zamanak.gifttree.GiftTreeSDK;
 import com.zamanak.gifttree.fragment.BaseFragmentNew;
 import com.zamanak.gifttree.interfaces.ViewBehavior;
 import com.zamanak.gifttree.utils.CommonUtils;

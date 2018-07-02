@@ -23,8 +23,8 @@
             </intent-filter>
         </activity>
         <activity android:name="com.zamanak.gifttree.activity.AdvancedWebViewActivity"/>
-        <activity android:name="com.zamanak.gifttree.activity.ChanceResultActivity" android:theme="@style/App_Theme" />
-        <activity android:name="com.zamanak.gifttree.activity.TryChanceActivity" android:theme="@style/App_Theme" />
+        <activity android:name="com.zamanak.gifttree.activity.ChanceResultActivity" />
+        <activity android:name="com.zamanak.gifttree.activity.TryChanceActivity"  />
         <activity android:name="com.zamanak.gifttree.activity.EntryActivity" android:theme="@style/App_Theme" />
     </application>
 

@@ -219,7 +219,7 @@ public class ChanceTreeFragment extends BaseFragmentNew implements View.OnClickL
         Intent intent;
         if (v.getId() == btnTryChance.getId()) {
             FirebaseLogUtils.logEvent(mActivity, "amazingTree_TryBTN");
-            if (isCanShake) {
+            if (true) {
                 intent = new Intent(mActivity, TryChanceActivity.class);
                 if (isSubscribed) {
                     intent.putExtra("chanceType", "special");

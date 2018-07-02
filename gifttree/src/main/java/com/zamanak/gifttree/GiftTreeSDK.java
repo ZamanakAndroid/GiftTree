@@ -15,6 +15,10 @@ public class GiftTreeSDK {
     private static  String BASE_API_KEY ;
     private static String TOKEN ;
 
+    private static int colorAccent;
+    private static int colorPrimary;
+    private static int colorPrimaryDark;
+
     private static volatile GiftTreeSDK sdk = new GiftTreeSDK();
 
     public GiftTreeSDK() {
@@ -55,6 +59,30 @@ public class GiftTreeSDK {
 
     public static String getGetChanceResult() {
         return GET_CHANCE_RESULT;
+    }
+
+    public static void setColorAccent(int colorAccent) {
+        GiftTreeSDK.colorAccent = colorAccent;
+    }
+
+    public static void setColorPrimary(int colorPrimary) {
+        GiftTreeSDK.colorPrimary = colorPrimary;
+    }
+
+    public static void setColorPrimaryDark(int colorPrimaryDark) {
+        GiftTreeSDK.colorPrimaryDark = colorPrimaryDark;
+    }
+
+    public static int getColorAccent() {
+        return colorAccent;
+    }
+
+    public static int getColorPrimary() {
+        return colorPrimary;
+    }
+
+    public static int getColorPrimaryDark() {
+        return colorPrimaryDark;
     }
 
     public void startScoreActivity(Activity ctx, String token, String baseApiKey){

@@ -6,9 +6,10 @@ import com.zamanak.gifttree.activity.BaseActivityNew;
 
 public class MainActivity extends BaseActivityNew {
 
+
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-        GiftTreeSDK.sharedLandOfHealth().startScoreActivity(this,"","");
+        GiftTreeSDK.sharedLandOfHealth().startScoreActivity(this,"","","");
 
     }
 

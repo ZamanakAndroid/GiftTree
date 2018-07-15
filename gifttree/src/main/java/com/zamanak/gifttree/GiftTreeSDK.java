@@ -7,13 +7,13 @@ import com.zamanak.gifttree.activity.ScoreActivity;
 
 public class GiftTreeSDK {
 
-    public static final String BASE_URL = "http://avasdp.shamimsalamat.ir/api/v2";
     public static final String GET_DETAIL = "/gift-tree/get-detail";
     public static final String WINNERS_ARROUND = "/gift-tree/winners-around";
     public static final String GET_CHANCE_RESULT = "/gift-tree/get-chance-result";
 
     private static  String BASE_API_KEY ;
     private static String TOKEN ;
+    public static  String BASE_URL;
 
     private static int colorAccent;
     private static int colorPrimary;
@@ -85,9 +85,18 @@ public class GiftTreeSDK {
         return colorPrimaryDark;
     }
 
-    public void startScoreActivity(Activity ctx, String token, String baseApiKey){
+    public static void setBaseApiKey(String baseApiKey) {
+        BASE_API_KEY = baseApiKey;
+    }
+
+    public static void setBaseUrl(String baseUrl) {
+        BASE_URL = baseUrl;
+    }
+
+    public void startScoreActivity(Activity ctx, String token, String baseApiKey, String baseURL){
         setTOKEN(token);
         setApiAppKey(baseApiKey);
+        setBaseUrl(baseURL);
         Intent intent = new Intent(ctx , ScoreActivity.class);
         ctx.startActivity(intent);
     }

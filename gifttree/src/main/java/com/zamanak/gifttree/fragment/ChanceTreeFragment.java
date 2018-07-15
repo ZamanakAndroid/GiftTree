@@ -109,6 +109,7 @@ public class ChanceTreeFragment extends BaseFragmentNew implements View.OnClickL
         getBundle();
         CustomProgressDialog.showProgressDialog(pbarFirst);
         callGetDetailApi();
+
     }
 
     private void getBundle() {

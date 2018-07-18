@@ -15,13 +15,7 @@
         android:name="com.zamanak.gifttree.controller.App"
         >
 
-        <activity android:name="com.zamanak.gifttree.activity.ScoreActivity" android:theme="@style/App_Theme" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name="com.zamanak.gifttree.activity.ScoreActivity" android:theme="@style/App_Theme" />
         <activity android:name="com.zamanak.gifttree.activity.AdvancedWebViewActivity"/>
         <activity android:name="com.zamanak.gifttree.activity.ChanceResultActivity" />
         <activity android:name="com.zamanak.gifttree.activity.TryChanceActivity"  />

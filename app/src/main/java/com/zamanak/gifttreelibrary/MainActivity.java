@@ -1,21 +1,31 @@
 package com.zamanak.gifttreelibrary;
 
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatTextView;
+import android.view.View;
+
 import com.zamanak.gifttree.GiftTreeSDK;
 import com.zamanak.gifttree.activity.BaseActivityNew;
 
 public class MainActivity extends BaseActivityNew {
 
-
-    @Override
-    protected void processLogic(Bundle savedInstanceState) {
-        GiftTreeSDK.sharedLandOfHealth().startScoreActivity(this,"","","");
-
-    }
+    private AppCompatTextView tvHello;
 
     @Override
     protected void initView(Bundle savedInstanceState) {
 
+    }
+
+    @Override
+    protected void processLogic(Bundle savedInstanceState) {
+        tvHello = findViewById(R.id.tvHello);
+        tvHello.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GiftTreeSDK.sharedLandOfHealth().startScoreActivity(MainActivity.this,"","","");
+
+            }
+        });
     }
 
     @Override
@@ -38,10 +48,4 @@ public class MainActivity extends BaseActivityNew {
 
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-    }
 }

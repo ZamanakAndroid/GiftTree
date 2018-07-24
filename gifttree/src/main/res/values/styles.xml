@@ -30,6 +30,10 @@
         <item name="titleTextStyle">@style/ActionBarTitle</item>
     </style>
 
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/anim_in</item>
+    </style>
+
     <style name="ActionBarTitle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">@color/jet</item>
     </style>

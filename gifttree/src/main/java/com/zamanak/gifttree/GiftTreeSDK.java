@@ -10,8 +10,10 @@ public class GiftTreeSDK {
     public static final String GET_DETAIL = "/gift-tree/get-detail";
     public static final String WINNERS_ARROUND = "/gift-tree/winners-around";
     public static final String GET_CHANCE_RESULT = "/gift-tree/get-chance-result";
+    public static final String CP_REGISTER = "/iuser/cp-register";
 
     private static  String BASE_API_KEY ;
+    private static String USER_API_KEY;
     private static String TOKEN ;
     public static  String BASE_URL;
 
@@ -93,9 +95,22 @@ public class GiftTreeSDK {
         BASE_URL = baseUrl;
     }
 
-    public void startScoreActivity(Activity ctx, String token, String baseApiKey, String baseURL){
+    public static String getCpRegister() {
+        return CP_REGISTER;
+    }
+
+    public static String getUserApiKey() {
+        return USER_API_KEY;
+    }
+
+    public static void setUserApiKey(String userApiKey) {
+        USER_API_KEY = userApiKey;
+    }
+
+    public void startScoreActivity(Activity ctx, String token, String baseApiKey, String baseURL, String userApiKey){
         setTOKEN(token);
         setApiAppKey(baseApiKey);
+        setUserApiKey(userApiKey);
         setBaseUrl(baseURL);
         Intent intent = new Intent(ctx , ScoreActivity.class);
         ctx.startActivity(intent);

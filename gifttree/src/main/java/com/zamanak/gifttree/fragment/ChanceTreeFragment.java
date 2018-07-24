@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
 import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.gson.Gson;
@@ -36,7 +37,9 @@ import com.zamanak.gifttree.interfaces.OnceTryChanceListener;
 import com.zamanak.gifttree.utils.Constants;
 import com.zamanak.gifttree.utils.FirebaseLogUtils;
 import com.zamanak.gifttree.utils.LocationUtils;
+import com.zamanak.gifttree.vas.VasDialogNew;
 import com.zamanak.gifttreelibrary.R;
+
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -154,11 +157,11 @@ public class ChanceTreeFragment extends BaseFragmentNew implements View.OnClickL
                     SModel vas = result.getsModel();
                     if (vas != null) {
                         //TODO Write VasDialogNew for your use
-                        /*VasDialogNew.newInstance(vas.getService(),
+                        VasDialogNew.newInstance(vas.getService(),
                                 vas.getUrl(), vas.getImageUrl(),
                                 vas.getTitle(), vas.getDetail(),
                                 vas.getbText())
-                                .show(getFragmentManager());*/
+                                .show(getFragmentManager());
                     }
                 }
                 CustomProgressDialog.showProgressDialog(progress_bar_list);
@@ -261,9 +264,9 @@ public class ChanceTreeFragment extends BaseFragmentNew implements View.OnClickL
     @Override
     public void onStart() {
         super.onStart();
-       if (!EventBus.getDefault().isRegistered(this)) {
+        if (!EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().register(this);
-       }
+        }
     }
 
     @Override

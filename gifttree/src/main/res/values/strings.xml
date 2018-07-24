@@ -47,5 +47,8 @@
     <string name="code"> کد فعالسازی را وارد نمایید</string>
     <string name="send">ارسال</string>
     <string name="invite_friends">ارسال لینک دعوت و افزایش امتیاز</string>
+    <string name="reg_field_is_empty">کد فعالسازی وارد نشده است.</string>
+    <string name="reg_field_contains_four_char">کد فعالسازی چهار رقمی است.</string>
+    <string name="operation_successful">عملیات موفقیت آمیز بود</string>
 
 </resources>

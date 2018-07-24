@@ -11,6 +11,7 @@ public class MainActivity extends BaseActivityNew {
 
     private AppCompatTextView tvHello;
 
+
     @Override
     protected void initView(Bundle savedInstanceState) {
 
@@ -22,7 +23,7 @@ public class MainActivity extends BaseActivityNew {
         tvHello.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GiftTreeSDK.sharedLandOfHealth().startScoreActivity(MainActivity.this,"","","");
+                GiftTreeSDK.sharedLandOfHealth().startScoreActivity(MainActivity.this,"","","","");
 
             }
         });

@@ -1,6 +1,8 @@
 package com.zamanak.gifttree.activity;
 
 import android.animation.Animator;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -12,6 +14,7 @@ import android.os.Handler;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -22,13 +25,20 @@ import com.zamanak.gifttree.api.ApiErrorCB;
 import com.zamanak.gifttree.api.ApiSuccessCB;
 import com.zamanak.gifttree.api.BaseApi;
 import com.zamanak.gifttree.api.Urls;
+import com.zamanak.gifttree.api.object.ShakeReminderObject;
 import com.zamanak.gifttree.api.request.RequestGetChanceResult;
 import com.zamanak.gifttree.api.result.ResultGetChanceRes;
 import com.zamanak.gifttree.api.result.SModel;
 import com.zamanak.gifttree.events.ShakeDetector;
+import com.zamanak.gifttree.receiver.MyReceiver;
 import com.zamanak.gifttree.utils.Constants;
 import com.zamanak.gifttree.utils.FirebaseLogUtils;
 import com.zamanak.gifttreelibrary.R;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class TryChanceActivity extends BaseActivityNew implements View.OnClickListener {
 
@@ -44,7 +54,8 @@ public class TryChanceActivity extends BaseActivityNew implements View.OnClickLi
     private SModel sModel;
     private double longitude, latitude;
     private boolean isCanShake;
-
+    private int mCurrentHours, mCurrentMinutees;
+    private ShakeReminderObject obj;
 
 
     @Override
@@ -142,6 +153,7 @@ public class TryChanceActivity extends BaseActivityNew implements View.OnClickLi
                                         mpWin.stop();
                                     }
                                 }, 1500);
+                                shakeReminder();
                                 callGetChanceResult();
                             }
 
@@ -165,6 +177,132 @@ public class TryChanceActivity extends BaseActivityNew implements View.OnClickLi
 
             }
         });
+
+    }
+
+
+
+    private void shakeReminder() {
+        String startHourStr, startMinStr, timeShakeStr, setTimeShakeStr;
+        mCurrentHours = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        mCurrentMinutees = Calendar.getInstance().get(Calendar.MINUTE);
+        Log.d("shakeReminder: ", mCurrentHours + " " + ":" + mCurrentMinutees + " ");
+        if (mCurrentHours < 10) {
+            startHourStr = "0" + mCurrentHours;
+        } else {
+            startHourStr = mCurrentHours + "";
+        }
+        if (mCurrentMinutees == 0) {
+            startMinStr = "00";
+        } else {
+            startMinStr = "" + mCurrentMinutees;
+        }
+        timeShakeStr = startHourStr + ":" + startMinStr;
+        Log.d("timeShakeStr: ", timeShakeStr);
+
+        setTimeShakeStr = calcNewTime(timeShakeStr);
+        Log.d("setTimeShakeStr: ", setTimeShakeStr);
+
+        obj = new ShakeReminderObject();
+
+        int hourPassed = mCurrentHours + 24;
+        if (hourPassed > 24) {
+            hourPassed = hourPassed - 24;
+        }
+        //save hourPassed
+        obj.setHousr(hourPassed);
+        int minutePassed = mCurrentMinutees + 60;
+        if (minutePassed > 60) {
+            minutePassed = minutePassed - 60;
+        }
+        // save minutes
+        //int testMin = minutePassed+2;
+        obj.setMinutes(minutePassed);
+
+        shakeManager();
+
+    }
+
+    private void shakeManager() {
+        Intent notifyIntent = new Intent(TryChanceActivity.this, MyReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(TryChanceActivity.this, 0, notifyIntent, 0);
+        AlarmManager alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+        //Calendar calendar = Calendar.getInstance();
+        //int mCurrentHours = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        //int mCurrentMinutees = Calendar.getInstance().get(Calendar.MINUTE);
+        /*if (obj.getHousr() != 0 && obj.getMinutes() != 0) {
+            calendar.set(Calendar.HOUR_OF_DAY, obj.getHousr());
+            calendar.set(Calendar.MINUTE, obj.getMinutes());
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
+                    calendar.getTimeInMillis(),
+                    86400000,
+                    pendingIntent);
+
+        }*/
+        // repeat every 2 min - > 2*60*1000
+        // for repeating in every 24 hours - > 86400000
+
+        /*Calendar firingCal = Calendar.getInstance();
+        Calendar currentCal = Calendar.getInstance();
+
+        firingCal.set(Calendar.HOUR,   17);
+        firingCal.set(Calendar.MINUTE, 8);
+        firingCal.set(Calendar.SECOND, 0);
+
+        long intendedTime = firingCal.getTimeInMillis();
+        long currentTime = currentCal.getTimeInMillis();
+
+        if (intendedTime >= currentTime) {
+            // set from today
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, intendedTime, AlarmManager.INTERVAL_DAY, pendingIntent);
+        } else {
+            // set from next day
+            // you might consider using calendar.add() for adding one day to the current day
+            firingCal.add(Calendar.DAY_OF_MONTH, 1);
+            intendedTime = firingCal.getTimeInMillis();
+
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, intendedTime, AlarmManager.INTERVAL_DAY, pendingIntent);
+        }*/
+        Calendar firingCal = Calendar.getInstance();
+        Calendar currentCal = Calendar.getInstance();
+        firingCal.setTimeInMillis(System.currentTimeMillis());
+        firingCal.set(Calendar.HOUR_OF_DAY, obj.getHousr());
+        firingCal.set(Calendar.MINUTE, obj.getMinutes());
+        firingCal.set(Calendar.SECOND, 0);
+        long fireTime = firingCal.getTimeInMillis();
+        long currentTime = currentCal.getTimeInMillis();
+        if (fireTime >= currentTime) {
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, fireTime, 1440 * 60 * 1000, // for repeating// in every 24// hours
+                    pendingIntent);
+        } else {
+            firingCal.add(Calendar.DAY_OF_MONTH, 1);
+            fireTime = firingCal.getTimeInMillis();
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, fireTime, 1440 * 60 * 1000, // for repeating// in every 24// hours
+                    pendingIntent);
+        }
+
+    }
+
+    private String calcNewTime(String startTime) {
+        String myTime = startTime;
+        SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+        Date d = null;
+        try {
+            d = df.parse(myTime);
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(d);
+
+            //double amount = diffrenceOfUsage*60;
+
+
+            //cal.add(Calendar.MINUTE, (int) amount);
+            String newTime = df.format(cal.getTime());
+            return newTime;
+        } catch (ParseException e) {
+
+            e.printStackTrace();
+            return startTime;
+        }
 
     }
 
@@ -237,7 +375,6 @@ public class TryChanceActivity extends BaseActivityNew implements View.OnClickLi
             }
         }
     }
-
 
 
 }

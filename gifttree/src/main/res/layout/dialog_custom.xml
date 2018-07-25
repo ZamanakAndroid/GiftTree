@@ -134,7 +134,9 @@
                         android:layout_marginBottom="15dp"
                         android:backgroundTint="@color/colorAccent"
                         android:text="OK"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:visibility="gone"
+                        />
 
                     <TextView
                         android:id="@+id/laterTextView"

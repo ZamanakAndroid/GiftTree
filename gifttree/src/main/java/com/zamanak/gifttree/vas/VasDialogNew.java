@@ -114,7 +114,10 @@ public class VasDialogNew extends BaseDialogNew implements View.OnClickListener 
         sendBtn.setOnClickListener(VasDialogNew.this);
 
         try {
-            regBtn.setText(bText);
+            if (regBtn.getVisibility()==View.GONE){
+                regBtn.setVisibility(View.VISIBLE);
+                regBtn.setText(bText);
+            }
             title_view.setText(title);
             description_view.setText(description);
             Glide.with(mActivity)

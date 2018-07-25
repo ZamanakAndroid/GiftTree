@@ -10,6 +10,7 @@ public class MainActivity extends BaseActivityNew {
 
     private AppCompatTextView tvHello;
 
+
     @Override
     protected void initView(Bundle savedInstanceState) {
 

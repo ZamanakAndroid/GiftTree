@@ -21,7 +21,7 @@ public class RequestCpRegister extends BaseApi {
         super(context, GiftTreeSDK.getBaseUrl(), GiftTreeSDK.getCpRegister(), apiSuccessCB,
                 apiErrorCB, true, true);
         this.cpRegisterObj = cpRegisterObj;
-        this.api_key = GiftTreeSDK.getUserApiKey();
+        this.api_key = GiftTreeSDK.getBaseApiKey();
         this.token = GiftTreeSDK.getTOKEN();
     }
 

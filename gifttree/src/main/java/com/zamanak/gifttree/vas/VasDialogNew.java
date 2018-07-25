@@ -2,8 +2,10 @@ package com.zamanak.gifttree.vas;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.Gravity;
@@ -31,6 +33,9 @@ import com.zamanak.gifttree.utils.ToastUtils;
 import com.zamanak.gifttreelibrary.R;
 
 import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Optional;
 
 /**
  * Created by PIRI on 10/29/2017.
@@ -48,6 +53,7 @@ public class VasDialogNew extends BaseDialogNew implements View.OnClickListener 
     private String image;
     private String title;
     private String description;
+    private String appName;
 
     private ImageView image_view;
     private TextView title_view;
@@ -62,7 +68,7 @@ public class VasDialogNew extends BaseDialogNew implements View.OnClickListener 
 
     public static VasDialogNew newInstance(String serviceType, String endPoint,
                                            String image, String title, String description,
-                                           String bText) {
+                                           String bText, String appName) {
 
         fragment = new VasDialogNew();
         Bundle bundle = new Bundle();
@@ -72,6 +78,7 @@ public class VasDialogNew extends BaseDialogNew implements View.OnClickListener 
         bundle.putString("serviceType", serviceType);
         bundle.putString("title", title);
         bundle.putString("description", description);
+        bundle.putString("appName", appName);
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -126,7 +133,7 @@ public class VasDialogNew extends BaseDialogNew implements View.OnClickListener 
 
         getBundle();
         //FirebaseLogUtils.logVasPageEvent(mActivity, "vasPage_visited", serviceType);
-        FirebaseLogUtils.logEvent(mActivity , "vasPage_visited");
+        FirebaseLogUtils.logEvent(mActivity, "vasPage_visited");
         return super.onCreateDialog(savedInstanceState);
     }
 
@@ -137,7 +144,12 @@ public class VasDialogNew extends BaseDialogNew implements View.OnClickListener 
             image = bundle.getString("image");
             title = bundle.getString("title");
             description = bundle.getString("description");
-            bText = bundle.getString("bText");
+            appName = bundle.getString("appName");
+            if ("zaer".equals(appName)) {
+                bText = "ارتقا درخت شانس";
+            } else if ("shamim".equals(appName)) {
+                bText = bundle.getString("bText");
+            }
             serviceType = bundle.getString("serviceType");
         } catch (Exception e) {
             e.printStackTrace();
@@ -182,7 +194,7 @@ public class VasDialogNew extends BaseDialogNew implements View.OnClickListener 
 
     public void dismissDialog() {
         super.dismiss();
-       // dismissAction();
+        // dismissAction();
     }
 
     private void dismissAction() {
@@ -192,7 +204,7 @@ public class VasDialogNew extends BaseDialogNew implements View.OnClickListener 
     @Override
     public void onClick(View v) {
         if (v == closeDialog) {
-            FirebaseLogUtils.logEvent(mActivity,"vasPage_dismissed");
+            FirebaseLogUtils.logEvent(mActivity, "vasPage_dismissed");
             //FirebaseLogUtils.logVasPageEvent(mActivity, "vasPage_dismissed", serviceType);
             dismissDialog();
         } else if (v == regBtn) {
@@ -216,15 +228,24 @@ public class VasDialogNew extends BaseDialogNew implements View.OnClickListener 
             public void onSuccess(BaseApi service) {
                 Log.v("ActivateService", service.resJson.toString());
                 try {
-                    if (service.resJson.getBoolean("result")) {
+                    if ("zaer".equals(appName)) {
+                        JSONObject obj = service.resJson.getJSONObject("result");
+                        if (obj != null) {
+                            updateVisibility();
+                        }
+
+                    } else if ("shamim".equals(appName)) {
+                        if (service.resJson.getBoolean("result")) {
                         /*FirebaseLogUtils.logVasPageSubscriptionEvent(mActivity,
                                 "vasPage_subscribe", serviceType, 1);*/
-                        dismissDialog();
-                    } else {
+                            dismissDialog();
+                        } else {
                        /* FirebaseLogUtils.logVasPageSubscriptionEvent(mActivity,
                                 "vasPage_subscribe", serviceType, 0);*/
-                        updateVisibility();
+                            updateVisibility();
+                        }
                     }
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -235,7 +256,7 @@ public class VasDialogNew extends BaseDialogNew implements View.OnClickListener 
                 Log.e("ActivateService", e.getMessage());
                 dismissDialog();
             }
-        }).execute();
+        }, appName).execute();
     }
 
     private void updateVisibility() {

@@ -14,6 +14,7 @@ public class GiftTreeSDK {
 
     private static  String BASE_API_KEY ;
     private static String USER_API_KEY;
+    private static String APP_NAME;
     private static String TOKEN ;
     public static  String BASE_URL;
 
@@ -107,11 +108,20 @@ public class GiftTreeSDK {
         USER_API_KEY = userApiKey;
     }
 
-    public void startScoreActivity(Activity ctx, String token, String baseApiKey, String baseURL, String userApiKey){
+    public static String getAppName() {
+        return APP_NAME;
+    }
+
+    public static void setAppName(String appName) {
+        APP_NAME = appName;
+    }
+
+    public void startScoreActivity(Activity ctx, String token, String baseApiKey, String baseURL, String userApiKey, String appName){
         setTOKEN(token);
         setApiAppKey(baseApiKey);
         setUserApiKey(userApiKey);
         setBaseUrl(baseURL);
+        setAppName(appName);
         Intent intent = new Intent(ctx , ScoreActivity.class);
         ctx.startActivity(intent);
     }

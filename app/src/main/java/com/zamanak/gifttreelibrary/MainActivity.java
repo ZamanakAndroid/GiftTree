@@ -3,14 +3,12 @@ package com.zamanak.gifttreelibrary;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
-
 import com.zamanak.gifttree.GiftTreeSDK;
 import com.zamanak.gifttree.activity.BaseActivityNew;
 
 public class MainActivity extends BaseActivityNew {
 
     private AppCompatTextView tvHello;
-
 
     @Override
     protected void initView(Bundle savedInstanceState) {
@@ -23,7 +21,7 @@ public class MainActivity extends BaseActivityNew {
         tvHello.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GiftTreeSDK.sharedLandOfHealth().startScoreActivity(MainActivity.this,"","","","");
+                GiftTreeSDK.sharedLandOfHealth().startScoreActivity(MainActivity.this,"","","","","");
 
             }
         });

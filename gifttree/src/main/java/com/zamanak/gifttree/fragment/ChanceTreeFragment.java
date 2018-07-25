@@ -160,7 +160,7 @@ public class ChanceTreeFragment extends BaseFragmentNew implements View.OnClickL
                         VasDialogNew.newInstance(vas.getService(),
                                 vas.getUrl(), vas.getImageUrl(),
                                 vas.getTitle(), vas.getDetail(),
-                                vas.getbText())
+                                vas.getbText(),GiftTreeSDK.getAppName())
                                 .show(getFragmentManager());
                     }
                 }

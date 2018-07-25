@@ -2,10 +2,8 @@ package com.zamanak.gifttree.vas;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.Gravity;
@@ -34,8 +32,6 @@ import com.zamanak.gifttreelibrary.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.Optional;
 
 /**
  * Created by PIRI on 10/29/2017.
@@ -102,7 +98,7 @@ public class VasDialogNew extends BaseDialogNew implements View.OnClickListener 
         title_view = getViewById(R.id.title);
         closeDialog = getViewById(R.id.closeDialog);
         description_view = getViewById(R.id.description);
-        regBtn = getViewById(R.id.okBtn);
+        regBtn = getViewById(R.id.okBtnLib);
         sendCodeLayout = getViewById(R.id.sendCodeLayout);
         regLayout = getViewById(R.id.regLayout);
         sendBtn = getViewById(R.id.sendBtn);
@@ -114,10 +110,7 @@ public class VasDialogNew extends BaseDialogNew implements View.OnClickListener 
         sendBtn.setOnClickListener(VasDialogNew.this);
 
         try {
-            if (regBtn.getVisibility()==View.GONE){
-                regBtn.setVisibility(View.VISIBLE);
-                regBtn.setText(bText);
-            }
+            regBtn.setText(bText);
             title_view.setText(title);
             description_view.setText(description);
             Glide.with(mActivity)
@@ -171,7 +164,7 @@ public class VasDialogNew extends BaseDialogNew implements View.OnClickListener 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        mContentView = inflater.inflate(R.layout.dialog_custom, container, false);
+        mContentView = inflater.inflate(R.layout.dialog_custom_lib, container, false);
         try {
             getDialog().getWindow().setGravity(Gravity.CENTER_HORIZONTAL | Gravity.BOTTOM);
         } catch (Exception e) {

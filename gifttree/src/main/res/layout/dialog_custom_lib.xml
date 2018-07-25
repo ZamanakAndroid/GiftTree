@@ -127,7 +127,7 @@
                     android:orientation="vertical">
 
                     <Button
-                        android:id="@+id/okBtn"
+                        android:id="@+id/okBtnLib"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -135,7 +135,7 @@
                         android:backgroundTint="@color/colorAccent"
                         android:text="OK"
                         android:textColor="@color/white"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         />
 
                     <TextView

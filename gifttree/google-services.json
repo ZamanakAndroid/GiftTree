@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "747694474515",
+    "firebase_url": "https://shamimpushnotif.firebaseio.com",
+    "project_id": "shamimpushnotif",
+    "storage_bucket": "shamimpushnotif.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:747694474515:android:842f2dd85c44b125",
+        "android_client_info": {
+          "package_name": "com.zamanak.gifttreelibrary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "747694474515-901tvot7buf9mnbtg1akj72atjnlolfi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zamanak.shamimsalamat",
+            "certificate_hash": "7b29429df317da3e14da6b471840223a7ba0c152"
+          }
+        },
+        {
+          "client_id": "747694474515-9pk9570od8p3lpi5s9954cia12svfe55.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMXVE3UsgT3F7ZKCgMhNcJMEqzmBcioaw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "747694474515-9pk9570od8p3lpi5s9954cia12svfe55.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "747694474515-h95lk2q8anervh4ml60ondmquvqatp21.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ShamimSalamat"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

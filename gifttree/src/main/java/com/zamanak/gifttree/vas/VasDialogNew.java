@@ -115,8 +115,6 @@ public class VasDialogNew extends BaseDialogNew implements View.OnClickListener 
             description_view.setText(description);
             Glide.with(mActivity)
                     .load(image)
-                    .error(R.drawable.no_image)
-                    .placeholder(R.drawable.no_image)
                     .into(image_view);
         } catch (Exception e) {
             e.printStackTrace();

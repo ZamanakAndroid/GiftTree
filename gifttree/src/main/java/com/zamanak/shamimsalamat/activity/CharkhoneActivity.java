@@ -24,6 +24,7 @@ public class CharkhoneActivity extends BaseActivityNew {
 
     // this is charkhoone sdk for library - > for use this sdk i should refactor package name
 
+
     private static final String TAG = "CharkhoneActivity";
 
     // The helper object

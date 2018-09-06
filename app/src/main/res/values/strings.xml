@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GiftTreeLibrary</string>
+    <string name="successful">عملیات موفقیت آمیز بود</string>
+    <string name="okBtn">تایید</string>
 </resources>

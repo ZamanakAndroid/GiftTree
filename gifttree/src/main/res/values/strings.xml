@@ -51,4 +51,7 @@
     <string name="reg_field_contains_four_char">کد فعالسازی چهار رقمی است.</string>
     <string name="operation_successful">عملیات موفقیت آمیز بود</string>
 
+    <string name="successful">عملیات موفقیت آمیز بود</string>
+    <string name="okBtn">تایید</string>
+
 </resources>

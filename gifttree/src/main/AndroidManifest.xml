@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zamanak.gifttreelibrary">
+    package="com.zamanak.shamimsalamat">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -10,14 +10,15 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name="com.zamanak.gifttree.controller.App"
+        android:name="com.zamanak.shamimsalamat.controller.App"
         >
 
-        <activity android:name="com.zamanak.gifttree.activity.ScoreActivity" android:theme="@style/App_Theme" />
-        <activity android:name="com.zamanak.gifttree.activity.AdvancedWebViewActivity"/>
-        <activity android:name="com.zamanak.gifttree.activity.ChanceResultActivity" />
-        <activity android:name="com.zamanak.gifttree.activity.TryChanceActivity"  />
-        <activity android:name="com.zamanak.gifttree.activity.EntryActivity" android:theme="@style/App_Theme" />
+        <activity android:name="com.zamanak.shamimsalamat.activity.ScoreActivity" android:theme="@style/App_Theme" />
+        <activity android:name="com.zamanak.shamimsalamat.activity.AdvancedWebViewActivity"/>
+        <activity android:name="com.zamanak.shamimsalamat.activity.ChanceResultActivity" />
+        <activity android:name="com.zamanak.shamimsalamat.activity.TryChanceActivity"  />
+        <activity android:name="com.zamanak.shamimsalamat.activity.EntryActivity" android:theme="@style/App_Theme" />
+        <activity android:name="com.zamanak.shamimsalamat.activity.CharkhoneActivity"/>
     </application>
 
 </manifest>

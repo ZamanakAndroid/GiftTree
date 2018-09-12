@@ -32,6 +32,7 @@ import com.zamanak.shamimsalamat.events.ShakeDetector;
 import com.zamanak.shamimsalamat.receiver.MyReceiver;
 import com.zamanak.shamimsalamat.utils.FirebaseLogUtils;
 import com.zamanak.shamimsalamat.R;
+import com.zamanak.shamimsalamat.vas.VasDialogNew;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -365,11 +366,11 @@ public class TryChanceActivity extends BaseActivityNew implements View.OnClickLi
             SModel vas = sModel;
             if (vas != null) {
                 //TODO if you want to use this code you should add VasDialogNew in your project
-              /*  VasDialogNew.newInstance(vas.getService(),
+                VasDialogNew.newInstance(vas.getService(),
                         vas.getUrl(), vas.getImageUrl(),
                         vas.getTitle(), vas.getDetail(),
-                        vas.getbText())
-                        .show(getSupportFragmentManager());*/
+                        vas.getbText(),GiftTreeSDK.getAppName(),vas.getOp())
+                        .show(getSupportFragmentManager());
             }
         }
     }

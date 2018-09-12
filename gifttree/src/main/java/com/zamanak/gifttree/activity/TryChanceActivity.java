@@ -33,6 +33,7 @@ import com.zamanak.gifttree.events.ShakeDetector;
 import com.zamanak.gifttree.receiver.MyReceiver;
 import com.zamanak.gifttree.utils.Constants;
 import com.zamanak.gifttree.utils.FirebaseLogUtils;
+import com.zamanak.gifttree.vas.VasDialogNew;
 import com.zamanak.gifttreelibrary.R;
 
 import java.text.ParseException;
@@ -367,11 +368,11 @@ public class TryChanceActivity extends BaseActivityNew implements View.OnClickLi
             SModel vas = sModel;
             if (vas != null) {
                 //TODO if you want to use this code you should add VasDialogNew in your project
-              /*  VasDialogNew.newInstance(vas.getService(),
+                VasDialogNew.newInstance(vas.getService(),
                         vas.getUrl(), vas.getImageUrl(),
                         vas.getTitle(), vas.getDetail(),
-                        vas.getbText())
-                        .show(getSupportFragmentManager());*/
+                        vas.getbText(),GiftTreeSDK.getAppName())
+                        .show(getSupportFragmentManager());
             }
         }
     }

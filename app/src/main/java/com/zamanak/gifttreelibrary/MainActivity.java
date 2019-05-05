@@ -10,8 +10,6 @@ public class MainActivity extends BaseActivityNew {
 
     private AppCompatTextView tvHello;
 
-
-
     @Override
     protected void initView(Bundle savedInstanceState) {
 
@@ -19,11 +17,11 @@ public class MainActivity extends BaseActivityNew {
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-        tvHello = findViewById(R.id.tvHello);
+//        tvHello = findViewById(R.id.tvHello);
         tvHello.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GiftTreeSDK.sharedLandOfHealth().startScoreActivity(MainActivity.this,"","","","","");
+                GiftTreeSDK.sharedLandOfHealth().startScoreActivity(MainActivity.this,"","","","","shamim");
 
             }
         });
@@ -31,7 +29,9 @@ public class MainActivity extends BaseActivityNew {
 
     @Override
     protected int getLayoutResource() {
-        return R.layout.activity_main;
+
+//        return R.layout.activity_main;
+        return Integer.parseInt(null);
     }
 
     @Override

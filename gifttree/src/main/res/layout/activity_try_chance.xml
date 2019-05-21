@@ -13,7 +13,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:background="@drawable/rippleorange"
-        android:text="شرکت در قرعه کشی ویژه"
+        android:text="حمایت از شمیم و دریافت هدیه"
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="70dp"
         android:gravity="center"
-        android:text="هر روز یک فرصت برای برنده شدن!"
+        android:text="هدایای حامیان شمیم بصورت روزانه در نظر گرفته میشود"
         android:textColor="@android:color/holo_red_light"
         android:textSize="18sp"
         android:textStyle="bold" />

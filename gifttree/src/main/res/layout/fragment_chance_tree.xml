@@ -78,7 +78,7 @@
                     android:layout_gravity="center"
                     android:layout_marginRight="17dp"
                     android:gravity="center"
-                    android:text="برندگان اطراف من"
+                    android:text="دریافت کنندگان هدیه اطراف من"
                     android:textColor="#2D2D2D"
                     android:textSize="18sp" />
 

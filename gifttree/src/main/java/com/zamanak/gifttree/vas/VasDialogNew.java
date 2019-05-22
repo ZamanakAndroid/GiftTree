@@ -140,7 +140,9 @@ public class VasDialogNew extends BaseDialogNew implements View.OnClickListener 
             description = bundle.getString("description");
             appName = bundle.getString("appName");
             if ("zaer".equals(appName)) {
-                bText = "ارتقا درخت شانس";
+//                bText = "ارتقا درخت شانس";
+                bText = bundle.getString("bText");
+
             } else if ("shamim".equals(appName)) {
                 bText = bundle.getString("bText");
             }
